@@ -6,106 +6,108 @@ const odsObjects = [
   {
     number: 1,
     name: "Erradicação da pobreza",
-    color: "red-500",
+    color: "bg-red-500",
     href: "#",
   },
   {
     number: 2,
     name: "Fome zero e agricultura sustentável",
-    color: "yellow-300",
+    color: "bg-yellow-300",
     href: "#",
   },
   {
     number: 3,
     name: "Saúde e bem-estar",
-    color: "green-600",
+    color: "bg-green-600",
     href: "#",
   },
   {
     number: 4,
     name: "Educação de qualidade",
-    color: "red-600",
+    color: "bg-red-600",
     href: "#",
   },
   {
     number: 5,
     name: "Igualdade de gênero",
-    color: "orange-600",
+    color: "bg-orange-600",
     href: "#",
   },
   {
     number: 6,
     name: "Água potável e saneamento",
-    color: "blue-300",
+    color: "bg-blue-300",
     href: "#",
   },
   {
     number: 7,
     name: "Energia limpa e acessível",
-    color: "yellow-400",
+    color: "bg-yellow-400",
     href: "#",
   },
   {
     number: 8,
     name: "Trabalho decente e crescimento econômico",
-    color: "pink-800",
+    color: "bg-pink-800",
     href: "#",
   },
   {
     number: 9,
     name: "Indústria, inovação e infraestrutura",
-    color: "orange-500",
+    color: "bg-orange-500",
     href: "#",
   },
   {
     number: 10,
     name: "Redução das desigualdades",
-    color: "pink-600",
+    color: "bg-pink-600",
     href: "#",
   },
   {
     number: 11,
     name: "Cidades e comunidades sustentáveis",
-    color: "yellow-500",
+    color: "bg-yellow-500",
     href: "#",
   },
   {
     number: 12,
     name: "Consumo e produção responsáveis",
-    color: "yellow-700",
+    color: "bg-yellow-700",
     href: "#",
   },
   {
     number: 13,
     name: "Ação contra a mudança global do clima",
-    color: "green-700",
+    color: "bg-green-700",
     href: "#",
   },
   {
     number: 14,
     name: "Vida na água",
-    color: "blue-400",
+    color: "bg-blue-400",
     href: "#",
   },
   {
     number: 15,
     name: "Vida terrestre",
-    color: "green-500",
+    color: "bg-green-500",
     href: "#",
   },
   {
     number: 16,
     name: "Paz, injustiça e instituições eficazes",
-    color: "blue-600",
+    color: "bg-blue-600",
     href: "#",
   },
   {
     number: 17,
     name: "Parcerias e meios de implementação",
-    color: "blue-800",
+    color: "bg-blue-800",
     href: "#",
   }
 ];
+
+const colorS = "red-300";
 
 const Home: NextPage = () => {
   return (
@@ -133,12 +135,12 @@ const Home: NextPage = () => {
         <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
           {odsObjects.map((item) => (
             <a
-              href="#"
-              className={`bg-${item.color} mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600`}
+              href={item.href}
+              key={item.number}
+              className={`${item.color} mt-6 w-96 h-44 rounded-xl border p-6 text-left hover:text-gray-900 focus:text-gray-900`}
             >
               <h3 className="text-2xl font-bold">ODS #{item.number}</h3>
               <p className="mt-4 text-xl">{item.name}</p>
-              <p className="mt-4 text-md">{item.color}</p>
             </a>
           ))}
         </div>
