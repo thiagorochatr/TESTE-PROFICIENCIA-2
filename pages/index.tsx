@@ -26,19 +26,13 @@ const Home: NextPage = () => {
             className="text-2xl"
           >
             <div className='text-start my-8'>
-              <h3 className='mb-2'>
-                Usuário
-              </h3>
-              <label htmlFor="user"></label>
+              <label htmlFor="user">Usuário</label><br />
               <input type="text" name="user" id="user"
                 className='bg-gray-300 p-2 rounded-xl'
               />
             </div>
             <div className='text-start my-8'>
-              <h3 className='mb-2'>
-                Senha
-              </h3>
-              <label htmlFor="password"></label>
+              <label htmlFor="password">Senha</label><br />
               <input type="password" name="password" id="password"
                 className='bg-gray-300 p-2 rounded-xl'
               />
