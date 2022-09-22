@@ -42,34 +42,18 @@ const Home: NextPage = () => {
             className='bg-gray-300 p-4 rounded-xl cursor-pointer hover:bg-gray-400 focus:bg-gray-400'
           />
           </form>
-
-
-
-            {/* <div className='text-2xl'>
-              <div className='text-start my-8'>
-                <label htmlFor="user">Usuário</label><br />
-                <input type="text" name="user" id="user"
-                  className='bg-gray-300 p-2 rounded-xl'
-                />
-              </div>
-              <div className='text-start my-8'>
-                <label htmlFor="password">Senha</label><br />
-                <input type="password" name="password" id="password"
-                  className='bg-gray-300 p-2 rounded-xl'
-                />
-              </div>
-              <a href="/odss"
-                className='bg-gray-300 p-4 rounded-xl cursor-pointer hover:bg-gray-400 focus:bg-gray-400'
-              >
-                Entrar
-              </a>
-            </div> */}
-
-
-
-
-
-
+          <div className='text-2xl'>
+            <p
+              className='mt-8 mb-2'
+            >
+              Ainda não possui conta?
+            </p>
+            <a 
+              className='underline p-2 rounded-lg hover:bg-gray-100 focus:bg-gray-100'
+              href="#">
+                Cadastre-se agora!
+            </a>
+          </div>
         </div>
       </main>
 
