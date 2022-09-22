@@ -12,15 +12,15 @@ const Home: NextPage = () => {
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <img src="hopee-logo.svg" alt="Hopee Logo"
-          className=''
+          className='mb-12'
         />
 
         <div>
-          <h2
+          <h1
             className='text-4xl mb-12'
           >
             Login
-          </h2>
+          </h1>
 
           <form action="odss"
             className="text-2xl"
@@ -29,6 +29,7 @@ const Home: NextPage = () => {
               <h3 className='mb-2'>
                 Usuário
               </h3>
+              <label htmlFor="user"></label>
               <input type="text" name="user" id="user"
                 className='bg-gray-300 p-2 rounded-xl'
               />
@@ -37,6 +38,7 @@ const Home: NextPage = () => {
               <h3 className='mb-2'>
                 Senha
               </h3>
+              <label htmlFor="password"></label>
               <input type="password" name="password" id="password"
                 className='bg-gray-300 p-2 rounded-xl'
               />
