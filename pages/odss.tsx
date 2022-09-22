@@ -7,7 +7,7 @@ const odsObjects = [
     number: 1,
     name: "Erradicação da pobreza",
     color: "bg-red-500",
-    href: "#",
+    href: "/ods1",
     icon: "icons/ods1.svg",
   },
   {
@@ -133,18 +133,13 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="mb-16 w-full sm:px-24 flex flex-1 flex-col items-center justify-center text-center">
-        <div className='flex justify-between items-center'>
+        <header className='mb-2 md:mb-4 flex items-center justify-center'>
           <img src="/hopee-logo.svg" alt="Hopee Logo"
-            className='w-32 mr-16 sm:mr-24 md:mr-44 lg:mr-96'
+            className='w-32'
           />
-  
-          <a
-            href="#"
-            className='bg-gray-300 p-4 rounded-lg text-2xl hover:bg-gray-400 focus:bg-gray-400'  
-          >Cadastrar projeto</a>
-        </div>
+        </header>
 
-        <p className="mt-8 text-2xl">
+        <p className="mt-4 text-2xl">
           Conheça os projetos de acordo com o ODS relacionado!
         </p>
 
