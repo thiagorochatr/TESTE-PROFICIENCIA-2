@@ -22,7 +22,7 @@ const Home: NextPage = () => {
             Login
           </h1>
 
-          {/* <form action="odss"
+          <form action="odss"
             className="text-2xl"
           >
             <div className='text-start my-8'>
@@ -41,11 +41,11 @@ const Home: NextPage = () => {
           <input type="submit" value="Entrar"
             className='bg-gray-300 p-4 rounded-xl cursor-pointer hover:bg-gray-400 focus:bg-gray-400'
           />
-          </form> */}
+          </form>
 
 
 
-            <div className='text-2xl'>
+            {/* <div className='text-2xl'>
               <div className='text-start my-8'>
                 <label htmlFor="user">Usuário</label><br />
                 <input type="text" name="user" id="user"
@@ -63,7 +63,7 @@ const Home: NextPage = () => {
               >
                 Entrar
               </a>
-            </div>
+            </div> */}
 
 
 
