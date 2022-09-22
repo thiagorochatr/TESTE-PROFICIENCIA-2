@@ -11,60 +11,41 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-yellow-500" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
+        <img src="hopee-logo.svg" alt="Hopee Logo"
+          className=''
+        />
 
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
-        </p>
-
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="odss"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
+        <div>
+          <h2
+            className='text-4xl mb-12'
           >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and its API.
-            </p>
-          </a>
+            Login
+          </h2>
 
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
+          <form action="odss"
+            className="text-2xl"
           >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
+            <div className='text-start my-8'>
+              <h3 className='mb-2'>
+                Usuário
+              </h3>
+              <input type="text" name="user" id="user"
+                className='bg-gray-300 p-2 rounded-xl'
+              />
+            </div>
+            <div className='text-start my-8'>
+              <h3 className='mb-2'>
+                Senha
+              </h3>
+              <input type="password" name="password" id="password"
+                className='bg-gray-300 p-2 rounded-xl'
+              />
+            </div>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+          <input type="submit" value="Entrar"
+            className='bg-gray-300 p-4 rounded-xl cursor-pointer hover:bg-gray-400 focus:bg-gray-400'
+          />
+          </form>
         </div>
       </main>
 
