@@ -132,7 +132,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/hopee-icon.svg" />
       </Head>
 
-      <main className="mb-16 w-full sm:px-24 flex flex-1 flex-col items-center justify-center text-center">
+      <main className="mb-16 w-full sm:px-24 flex flex-1 flex-col justify-center text-center sm:items-center">
         <header className='mb-2 md:mb-4 flex items-center justify-center'>
           <img src="/hopee-logo.svg" alt="Hopee Logo"
             className='w-32'
@@ -143,12 +143,12 @@ const Home: NextPage = () => {
           Conheça os projetos de acordo com o ODS relacionado!
         </p>
 
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
+        <div className="mt-6 flex max-w-4xl flex-wrap justify-around sm:w-full px-4 items-center ">
           {odsObjects.map((item) => (
             <a
               href={item.href}
               key={item.number}
-              className={`${item.color} mt-6 w-96 h-44 rounded-xl border p-6 text-center hover:text-gray-900 focus:text-gray-900`}
+              className={`${item.color} mr-4 mt-6 w-96 h-44 rounded-xl border p-6 text-center hover:text-gray-900 focus:text-gray-900`}
             >
               <div className='flex items-center justify-center'>
                 <h3 className="text-2xl font-bold">ODS #{item.number}</h3>

@@ -22,7 +22,7 @@ const Home: NextPage = () => {
             Login
           </h1>
 
-          <form action="odss" className="text-2xl">
+          <form action="odss" className="text-xl sm:text-2xl">
             <div className='text-start my-8'>
               <label htmlFor="user">Usuário</label><br />
               <input type="text" name="user" id="user"

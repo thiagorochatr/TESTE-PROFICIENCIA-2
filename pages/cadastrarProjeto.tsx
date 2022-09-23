@@ -34,7 +34,7 @@ const Home: NextPage = () => {
 
         <div>
           <form action="#"
-            className="text-2xl"
+            className="text-lg sm:text-xl md:text-2xl"
           >
             <div className='text-start my-8'>
               <label htmlFor="titulo">Título</label><br />
