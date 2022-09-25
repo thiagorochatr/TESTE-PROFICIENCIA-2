@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Home: NextPage = () => {
   return (
@@ -46,11 +47,11 @@ const Home: NextPage = () => {
             >
               Ainda não possui conta?
             </p>
-            <a 
-              className='underline p-2 rounded-lg hover:bg-gray-100 focus:bg-gray-100'
-              href="#">
+            <Link href="#">
+              <a className='underline p-2 rounded-lg hover:bg-gray-100 focus:bg-gray-100'>
                 Cadastre-se agora!
-            </a>
+              </a>
+            </Link>
           </div>
         </div>
       </main>

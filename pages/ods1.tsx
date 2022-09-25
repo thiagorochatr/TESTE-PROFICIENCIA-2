@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Home: NextPage = () => {
   return (
@@ -18,25 +19,26 @@ const Home: NextPage = () => {
         </header>
 
         <div className='mb-8 flex items-center justify-center'>
-          <a href='/odss' className='mr-1 sm:mr-4 p-2 rounded-lg hover:bg-gray-100 focus:bg-gray-100'>
-            <img
-              src="icons/arrow-left.svg"
-              alt="Voltar para a página anterior"
-              className='w-8 sm:w-10 md:w-12 lg:w-12'
-            />
-          </a>
+          <Link href='/odss'>
+            <a className='mr-1 sm:mr-4 p-2 rounded-lg hover:bg-gray-100 focus:bg-gray-100'>
+              <img
+                src="icons/arrow-left.svg"
+                alt="Voltar para a página anterior"
+                className='w-8 sm:w-10 md:w-12 lg:w-12'
+              />
+            </a>
+          </Link>
           <h1
             className='text-lg sm:text-2xl md:text-3xl lg:text-4xl'
           >
             ODS #1 - Erradicação da pobreza
           </h1>
         </div>
-        <a
-          href="/cadastrarProjeto"
-          className='bg-gray-300 p-4 rounded-lg text-2xl hover:bg-gray-400 focus:bg-gray-400'  
-        >
-          Cadastrar projeto
-        </a>
+        <Link href="/cadastrarProjeto">
+          <a className='bg-gray-300 p-4 rounded-lg text-2xl hover:bg-gray-400 focus:bg-gray-400'>
+            Cadastrar projeto
+          </a>
+        </Link>
       </main>
 
       <footer className="flex h-24 w-full items-center justify-center border-t">

@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link';
 
 const odsObjects = [
   {
@@ -145,21 +146,22 @@ const Home: NextPage = () => {
 
         <div className="mt-6 flex max-w-4xl flex-wrap justify-around sm:w-full px-4 items-center ">
           {odsObjects.map((item) => (
-            <a
-              href={item.href}
-              key={item.number}
-              className={`${item.color} mr-4 mt-6 w-96 h-44 rounded-xl border p-6 text-center hover:text-gray-900 focus:text-gray-900`}
-            >
-              <div className='flex items-center justify-center'>
-                <h3 className="text-2xl font-bold">ODS #{item.number}</h3>
-                <img
-                  src={item.icon}
-                  alt={`ODS #${item.number} icon.`}
-                  className="w-8 ml-4"  
-                />
-              </div>
-              <p className="mt-4 text-2xl">{item.name}</p>
-            </a>
+            <Link href={item.href}>
+              <a
+                key={item.number}
+                className={`${item.color} mr-4 mt-6 w-96 h-44 rounded-xl border p-6 text-center hover:text-gray-900 focus:text-gray-900`}
+              >
+                <div className='flex items-center justify-center'>
+                  <h3 className="text-2xl font-bold">ODS #{item.number}</h3>
+                  <img
+                    src={item.icon}
+                    alt={`ODS #${item.number} icon.`}
+                    className="w-8 ml-4"  
+                  />
+                </div>
+                <p className="mt-4 text-2xl">{item.name}</p>
+              </a>
+            </Link>
           ))}
         </div>
       </main>

@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Home: NextPage = () => {
   return (
@@ -18,13 +19,15 @@ const Home: NextPage = () => {
         </header>
 
         <div className='flex items-center justify-center'>
-          <a href='/ods1' className='mr-1 sm:mr-4 p-2 rounded-lg hover:bg-gray-100 focus:bg-gray-100'>
-            <img
-              src="icons/arrow-left.svg"
-              alt="Voltar para a página anterior"
-              className='w-8 sm:w-10 md:w-12 lg:w-12'
-            />
-          </a>
+          <Link href='/ods1'>
+            <a className='mr-1 sm:mr-4 p-2 rounded-lg hover:bg-gray-100 focus:bg-gray-100'>
+              <img
+                src="icons/arrow-left.svg"
+                alt="Voltar para a página anterior"
+                className='w-8 sm:w-10 md:w-12 lg:w-12'
+              />
+            </a>
+          </Link>
           <h1
             className='font-bold text-lg sm:text-2xl md:text-3xl lg:text-4xl'
           >
