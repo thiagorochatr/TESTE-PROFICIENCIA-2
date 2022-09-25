@@ -2,8 +2,24 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import { type } from 'os'
+import { useEffect, useState } from 'react'
+
+
 
 const Home: NextPage = () => {
+  
+  const [repositories, setRepositories] = useState([]);
+  
+
+  useEffect(() => {
+    fetch("https://api.github.com/users/thiagorochatr/repos")
+    .then(response => response.json())
+    .then(data => setRepositories(data))
+  }, []);
+
+
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
@@ -34,6 +50,15 @@ const Home: NextPage = () => {
             ODS #1 - Erradicação da pobreza
           </h1>
         </div>
+
+
+        {/* TESTE DE API EXTERNA!!!!!! */}
+                    <div className='mb-8 text-white bg-gray-700'>
+                      {repositories.map(repository => {
+                        return <p>{repository.name}</p>
+                      })}
+                    </div>
+
         <Link href="/cadastrarProjeto">
           <a className='bg-gray-300 p-4 rounded-lg text-2xl hover:bg-gray-400 focus:bg-gray-400'>
             Cadastrar projeto
