@@ -4,11 +4,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
-
+interface repositoryTypes {
+  // repository: {
+    name: string
+  // }
+}
 
 const Home: NextPage = () => {
   
-  const [repositories, setRepositories] = useState([]);
+  const [repositories, setRepositories] = useState<repositoryTypes[]>([]);
   
 
   useEffect(() => {
