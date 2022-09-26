@@ -28,33 +28,6 @@ const Home = () => {
 
   const [chartOptions, setChartOptions] = useState({});
 
-  const data = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-    datasets: [
-      {
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-        ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
-        ],
-        borderWidth: 1,
-      },
-    ],
-  };
-
   const nomes = repositories.map(item => { return item.name });
 
   const valoresEmUsd = repositories.map(item => { return item.price_usd });
@@ -71,10 +44,31 @@ const Home = () => {
       labels: nomes,
       datasets: [
         {
-          label: "Whom'st let the dogs out",
+          label: "Valor em Dólar das criptomoedas",
           data: valoresEmUsd,
-          borderColor: "rgb(53, 162, 235)",
-          backgroundColor: "rgba(53, 162, 235, 0.4)",
+          backgroundColor: [
+            'rgba(255, 206, 86, 0.5)',
+            'rgba(54, 162, 235, 0.5)',
+            'rgba(255, 99, 132, 0.5)',
+            'rgba(79, 79, 79, 0.5)',
+            'rgba(138, 43, 226, 0.5)',
+            'rgba(255, 69, 0, 0.5)',
+            'rgb(0, 255, 0, 0.5)',
+            'rgba(255,20,147, 0.5)',
+            'rgba(139,69,19, 0.5)'
+          ],
+          borderColor: [
+            'rgba(255, 206, 86, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 99, 132, 1)',
+            'rgba(79, 79, 79, 1)',
+            'rgba(138, 43, 226, 1)',
+            'rgba(255, 69, 0, 1)',
+            'rgb(0, 255, 0, 1)',
+            'rgba(255,20,147, 1)',
+            'rgba(139,69,19, 1)'
+          ],
+          borderWidth: .5,
         },
       ],
     });
@@ -125,9 +119,11 @@ const Home = () => {
 
 
         {/* TESTE DE API EXTERNA!!!!!!*/}
-                    <Pie data={chartData}/>
+                    <div className='my-4 md:my-8 w-72 md:w-96'>
+                      <Pie data={chartData} />
+                    </div>
 
-                    <div className='mb-8 text-white bg-gray-700'>
+                    <div className='mb-8 text-lg sm:text-xl md:text-2xl'>
                       {repositories.map(item => {
                         return <p>{item.name}: ${item.price_usd}</p>
                       })}

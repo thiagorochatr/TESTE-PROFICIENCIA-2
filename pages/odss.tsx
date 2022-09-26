@@ -8,7 +8,7 @@ const odsObjects = [
     number: 1,
     name: "Erradicação da pobreza",
     color: "bg-red-500",
-    href: "/ods1-copy",
+    href: "/ods1",
     icon: "icons/ods1.svg",
   }, {
     number: 2,
