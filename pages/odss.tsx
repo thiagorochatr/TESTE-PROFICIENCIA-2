@@ -8,115 +8,99 @@ const odsObjects = [
     number: 1,
     name: "Erradicação da pobreza",
     color: "bg-red-500",
-    href: "/ods1",
+    href: "/ods1-copy",
     icon: "icons/ods1.svg",
-  },
-  {
+  }, {
     number: 2,
     name: "Fome zero e agricultura sustentável",
     color: "bg-yellow-300",
     href: "#",
     icon: "icons/ods2.svg",
-  },
-  {
+  }, {
     number: 3,
     name: "Saúde e bem-estar",
     color: "bg-green-600",
     href: "#",
     icon: "icons/ods3.svg",
-  },
-  {
+  }, {
     number: 4,
     name: "Educação de qualidade",
     color: "bg-red-600",
     href: "#",
     icon: "icons/ods4.svg",
-  },
-  {
+  }, {
     number: 5,
     name: "Igualdade de gênero",
     color: "bg-orange-600",
     href: "#",
     icon: "icons/ods5.svg",
-  },
-  {
+  }, {
     number: 6,
     name: "Água potável e saneamento",
     color: "bg-blue-300",
     href: "#",
     icon: "icons/ods6.svg",
-  },
-  {
+  }, {
     number: 7,
     name: "Energia limpa e acessível",
     color: "bg-yellow-400",
     href: "#",
     icon: "icons/ods7.svg",
-  },
-  {
+  }, {
     number: 8,
     name: "Trabalho decente e crescimento econômico",
     color: "bg-pink-800",
     href: "#",
     icon: "icons/ods8.svg",
-  },
-  {
+  }, {
     number: 9,
     name: "Indústria, inovação e infraestrutura",
     color: "bg-orange-500",
     href: "#",
     icon: "icons/ods9.svg",
-  },
-  {
+  }, {
     number: 10,
     name: "Redução das desigualdades",
     color: "bg-pink-600",
     href: "#",
     icon: "icons/ods10.svg",
-  },
-  {
+  }, {
     number: 11,
     name: "Cidades e comunidades sustentáveis",
     color: "bg-yellow-500",
     href: "#",
     icon: "icons/ods11.svg",
-  },
-  {
+  }, {
     number: 12,
     name: "Consumo e produção responsáveis",
     color: "bg-yellow-700",
     href: "#",
     icon: "icons/ods12.svg",
-  },
-  {
+  }, {
     number: 13,
     name: "Ação contra a mudança global do clima",
     color: "bg-green-700",
     href: "#",
     icon: "icons/ods13.svg",
-  },
-  {
+  }, {
     number: 14,
     name: "Vida na água",
     color: "bg-blue-400",
     href: "#",
     icon: "icons/ods14.svg",
-  },
-  {
+  }, {
     number: 15,
     name: "Vida terrestre",
     color: "bg-green-500",
     href: "#",
     icon: "icons/ods15.svg",
-  },
-  {
+  }, {
     number: 16,
     name: "Paz, injustiça e instituições eficazes",
     color: "bg-blue-600",
     href: "#",
     icon: "icons/ods16.svg",
-  },
-  {
+  }, {
     number: 17,
     name: "Parcerias e meios de implementação",
     color: "bg-blue-800",

@@ -1,8 +1,7 @@
-import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -11,74 +10,8 @@ import {
   Title,
   Tooltip,
   Legend,
-  Chart,
 } from 'chart.js';
 import { Bar } from "react-chartjs-2";
-
-
-// import type { ChartData, ChartOptions } from 'chart.js';
-
-// import { Moment } from 'moment';
-
-// interface LineProps {
-//   options: ChartOptions<'line'>;
-//   data: ChartData<'line'>;
-// }
-
-
-
-// const plugin = {
-//   afterDraw: (chartInstance: Chart, easing: Chart.Easing, options?: any) => { },
-// };
-
-// const ctx = new CanvasRenderingContext2D();
-
-// const chartWithNumberArrayData: Chart = new Chart(ctx, {
-//   type: 'bar',
-//   data: {
-//       datasets: [{
-//           backgroundColor: '#000',
-//           borderColor: '#f00',
-//           data: [
-//               [1, 2],
-//               [3, 4],
-//               [5, 6]
-//           ],
-//           type: 'line',
-//       }]
-//   },
-//   options: {
-//       scales: {
-//           displayFormats: {
-//               month: 'MMM YYYY',
-//           },
-//           xAxes: [{
-//               type: 'time',
-//               distribution: 'series',
-//               ticks: {
-//                   source: 'data',
-//                   autoSkip: true,
-//                   sampleSize: 1,
-//               }
-//           }],
-//           yAxes: [{
-//               scaleLabel: {
-//                   display: true,
-//                   labelString: 'Closing price ($)'
-//               },
-//               afterBuildTicks: (scale, ticks) => {
-//                   return [Math.max(...ticks), 10, Math.min(...ticks)];
-//               }
-//           }]
-//       },
-//       tooltips: {
-//           intersect: false,
-//           mode: 'index',
-//       }
-//   }
-// });
-
-
 
 ChartJS.register(
   CategoryScale,
@@ -89,23 +22,10 @@ ChartJS.register(
   Legend
 );
 
-// interface chartDataTypes {
+const Home = () => {
 
-// }
-
-interface apiDataTypes {
-  name: string,
-  price_usd: number,
-}
-
-const Home: NextPage = () => {
-
-
-
-
-  const [repositories, setRepositories] = useState<apiDataTypes[]>([]);
+  const [repositories, setRepositories] = useState([]);
   
-
   const [chartData, setChartData] = useState({
     datasets: [],
   });
@@ -116,17 +36,20 @@ const Home: NextPage = () => {
   // console.log(nomes);
 
   const valoresEmUsd = repositories.map(item => { return item.price_usd });
-  // console.log(valoresEmUsd);
+  console.log(valoresEmUsd);
 
   const variavelTeste = valoresEmUsd;
+  console.log(variavelTeste);
 
   useEffect(() => {
     fetch("https://api.coinlore.net/api/tickers/?start=0&limit=9")
     .then(response => response.json())
     .then(object => object.data)
     .then(array => setRepositories(array))
+  }, []);
 
 
+  useEffect(() => {
     setChartData({
       labels: nomes,
       datasets: [
@@ -150,8 +73,7 @@ const Home: NextPage = () => {
         },
       },
     });
-
-  }, []);
+  },[]);
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
@@ -196,7 +118,8 @@ const Home: NextPage = () => {
                       })}
                     </div>
 
-                    {/* <chartWithNumberArrayData /> */}
+
+                    <chartWithNumberArrayData />
 
         <Link href="/cadastrarProjeto">
           <a className='bg-gray-300 p-4 rounded-lg text-2xl hover:bg-gray-400 focus:bg-gray-400'>
