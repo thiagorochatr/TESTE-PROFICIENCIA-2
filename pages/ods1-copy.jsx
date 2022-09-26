@@ -4,22 +4,18 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import {
   Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
   Title,
   Tooltip,
   Legend,
+  ArcElement,
 } from 'chart.js';
-import { Bar } from "react-chartjs-2";
+import { Pie } from "react-chartjs-2";
 
 ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  ArcElement,
 );
 
 const Home = () => {
@@ -32,14 +28,82 @@ const Home = () => {
 
   const [chartOptions, setChartOptions] = useState({});
 
+  const data = {
+    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    datasets: [
+      {
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+
+
+  // useEffect(() => {
+  //   fetch("https://api.coinlore.net/api/tickers/?start=0&limit=9")
+  //   .then(response => response.json())
+  //   .then(object => object.data)
+  //   .then(array => setRepositories(array))
+  // }, []);
+
+  // const criarGrafico = () => {
+  //   const nomes = repositories.map(item => { return item.name });
+  //   console.log(nomes);
+  
+  //   const valoresEmUsd = repositories.map(item => { return item.price_usd });
+  //   console.log(valoresEmUsd);
+
+  //   setChartData({
+  //     labels: nomes,
+  //     datasets: [
+  //       {
+  //         label: "Whom'st let the dogs out",
+  //         data: valoresEmUsd,
+  //         borderColor: "rgb(53, 162, 235)",
+  //         backgroundColor: "rgba(53, 162, 235, 0.4)",
+  //       },
+  //     ],
+  //   });
+  //   setChartOptions({
+  //     responsive: true,
+  //     plugins: {
+  //       legend: {
+  //         position: "top"
+  //       },
+  //       title: {
+  //         display: true,
+  //         text: "Whom'st let the dogs out",
+  //       },
+  //     },
+  //   });
+  // }
+
+
+  // =============================================================================================
+
   const nomes = repositories.map(item => { return item.name });
   // console.log(nomes);
 
   const valoresEmUsd = repositories.map(item => { return item.price_usd });
-  console.log(valoresEmUsd);
-
-  const variavelTeste = valoresEmUsd;
-  console.log(variavelTeste);
+  // console.log(valoresEmUsd);
 
   useEffect(() => {
     fetch("https://api.coinlore.net/api/tickers/?start=0&limit=9")
@@ -48,8 +112,13 @@ const Home = () => {
     .then(array => setRepositories(array))
   }, []);
 
-
   useEffect(() => {
+      // const nomes = repositories.map(item => { return item.name });
+      // // console.log(nomes);
+
+      // const valoresEmUsd = repositories.map(item => { return item.price_usd });
+      // // console.log(valoresEmUsd);
+
     setChartData({
       labels: nomes,
       datasets: [
@@ -73,8 +142,8 @@ const Home = () => {
         },
       },
     });
-  },[]);
-
+  },[repositories]);
+  
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
@@ -107,19 +176,15 @@ const Home = () => {
         </div>
 
 
-        {/* TESTE DE API EXTERNA!!!!!! */}
-
-                    <Bar options={chartOptions} data={chartData} />
-
+        {/* TESTE DE API EXTERNA!!!!!!*/}
+                    {/* <button onClick={criarGrafico}>Gerar gráfico</button> */}
+                    <Pie data={chartData}/>
 
                     <div className='mb-8 text-white bg-gray-700'>
                       {repositories.map(item => {
                         return <p>{item.name}: ${item.price_usd}</p>
                       })}
                     </div>
-
-
-                    <chartWithNumberArrayData />
 
         <Link href="/cadastrarProjeto">
           <a className='bg-gray-300 p-4 rounded-lg text-2xl hover:bg-gray-400 focus:bg-gray-400'>
