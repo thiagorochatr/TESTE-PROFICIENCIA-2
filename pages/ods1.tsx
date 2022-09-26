@@ -2,10 +2,36 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import { Bar } from "react-chartjs-2";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+// interface chartDataTypes {
+
+// }
+
+
 
 interface apiDataTypes {
-  name: string
+  name: string,
+  price_usd: number,
 }
 
 const Home: NextPage = () => {
@@ -13,13 +39,52 @@ const Home: NextPage = () => {
   const [repositories, setRepositories] = useState<apiDataTypes[]>([]);
   
 
+  const [chartData, setChartData] = useState({
+    datasets: [],
+  });
+
+  const [chartOptions, setChartOptions] = useState({});
+
+  const nomes = repositories.map(item => { return item.name });
+  // console.log(nomes);
+
+  const valoresEmUsd = repositories.map(item => { return item.price_usd });
+  // console.log(valoresEmUsd);
+
+  const variavelTeste = valoresEmUsd;
+
   useEffect(() => {
-    fetch("https://zoo-animal-api.herokuapp.com/animals/rand/5")
+    fetch("https://api.coinlore.net/api/tickers/?start=0&limit=9")
     .then(response => response.json())
-    .then(data => setRepositories(data))
+    .then(object => object.data)
+    .then(array => setRepositories(array))
+
+
+    setChartData({
+      labels: nomes,
+      datasets: [
+        {
+          label: "Whom'st let the dogs out",
+          data: variavelTeste,
+          borderColor: "rgb(53, 162, 235)",
+          backgroundColor: "rgba(53, 162, 235, 0.4)",
+        },
+      ],
+    });
+    setChartOptions({
+      responsive: true,
+      plugins: {
+        legend: {
+          position: "top"
+        },
+        title: {
+          display: true,
+          text: "Whom'st let the dogs out",
+        },
+      },
+    });
+
   }, []);
-
-
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
@@ -54,9 +119,13 @@ const Home: NextPage = () => {
 
 
         {/* TESTE DE API EXTERNA!!!!!! */}
+
+                    <Bar options={chartOptions} data={chartData} />
+
+
                     <div className='mb-8 text-white bg-gray-700'>
                       {repositories.map(item => {
-                        return <p>{item.name}</p>
+                        return <p>{item.name}: ${item.price_usd}</p>
                       })}
                     </div>
 
