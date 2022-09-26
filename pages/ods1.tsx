@@ -5,88 +5,18 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import {
   Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
   Title,
   Tooltip,
   Legend,
-  Chart,
+  ArcElement,
 } from 'chart.js';
-import { Bar } from "react-chartjs-2";
-
-
-// import type { ChartData, ChartOptions } from 'chart.js';
-
-// import { Moment } from 'moment';
-
-// interface LineProps {
-//   options: ChartOptions<'line'>;
-//   data: ChartData<'line'>;
-// }
-
-
-
-// const plugin = {
-//   afterDraw: (chartInstance: Chart, easing: Chart.Easing, options?: any) => { },
-// };
-
-// const ctx = new CanvasRenderingContext2D();
-
-// const chartWithNumberArrayData: Chart = new Chart(ctx, {
-//   type: 'bar',
-//   data: {
-//       datasets: [{
-//           backgroundColor: '#000',
-//           borderColor: '#f00',
-//           data: [
-//               [1, 2],
-//               [3, 4],
-//               [5, 6]
-//           ],
-//           type: 'line',
-//       }]
-//   },
-//   options: {
-//       scales: {
-//           displayFormats: {
-//               month: 'MMM YYYY',
-//           },
-//           xAxes: [{
-//               type: 'time',
-//               distribution: 'series',
-//               ticks: {
-//                   source: 'data',
-//                   autoSkip: true,
-//                   sampleSize: 1,
-//               }
-//           }],
-//           yAxes: [{
-//               scaleLabel: {
-//                   display: true,
-//                   labelString: 'Closing price ($)'
-//               },
-//               afterBuildTicks: (scale, ticks) => {
-//                   return [Math.max(...ticks), 10, Math.min(...ticks)];
-//               }
-//           }]
-//       },
-//       tooltips: {
-//           intersect: false,
-//           mode: 'index',
-//       }
-//   }
-// });
-
-
+import { Pie } from "react-chartjs-2";
 
 ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  ArcElement,
 );
 
 // interface chartDataTypes {
@@ -100,9 +30,6 @@ interface apiDataTypes {
 
 const Home: NextPage = () => {
 
-
-
-
   const [repositories, setRepositories] = useState<apiDataTypes[]>([]);
   
 
@@ -113,28 +40,25 @@ const Home: NextPage = () => {
   const [chartOptions, setChartOptions] = useState({});
 
   const nomes = repositories.map(item => { return item.name });
-  // console.log(nomes);
 
   const valoresEmUsd = repositories.map(item => { return item.price_usd });
-  // console.log(valoresEmUsd);
-
-  const variavelTeste = valoresEmUsd;
 
   useEffect(() => {
     fetch("https://api.coinlore.net/api/tickers/?start=0&limit=9")
     .then(response => response.json())
     .then(object => object.data)
     .then(array => setRepositories(array))
-
-
+  }, []);
+  
+  useEffect(() => {
     setChartData({
       // labels: nomes,
       datasets: [
         // {
-          // label: "Whom'st let the dogs out",
-          // data: valoresEmUsd,
-          // borderColor: "rgb(53, 162, 235)",
-          // backgroundColor: "rgba(53, 162, 235, 0.4)",
+        //   label: "Whom'st let the dogs out",
+        //   data: valoresEmUsd,
+        //   borderColor: "rgb(53, 162, 235)",
+        //   backgroundColor: "rgba(53, 162, 235, 0.4)",
         // },
       ],
     });
@@ -151,7 +75,7 @@ const Home: NextPage = () => {
       },
     });
 
-  }, []);
+  }, [repositories]);
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
@@ -187,7 +111,7 @@ const Home: NextPage = () => {
 
         {/* TESTE DE API EXTERNA!!!!!! */}
 
-                    <Bar options={chartOptions} data={chartData} />
+                    <Pie data={chartData}/>
 
 
                     <div className='mb-8 text-white bg-gray-700'>
@@ -196,7 +120,6 @@ const Home: NextPage = () => {
                       })}
                     </div>
 
-                    {/* <chartWithNumberArrayData /> */}
 
         <Link href="/cadastrarProjeto">
           <a className='bg-gray-300 p-4 rounded-lg text-2xl hover:bg-gray-400 focus:bg-gray-400'>
