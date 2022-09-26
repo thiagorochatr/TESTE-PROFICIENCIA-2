@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   Chart as ChartJS,
   Title,
@@ -55,55 +55,9 @@ const Home = () => {
     ],
   };
 
-
-
-  // useEffect(() => {
-  //   fetch("https://api.coinlore.net/api/tickers/?start=0&limit=9")
-  //   .then(response => response.json())
-  //   .then(object => object.data)
-  //   .then(array => setRepositories(array))
-  // }, []);
-
-  // const criarGrafico = () => {
-  //   const nomes = repositories.map(item => { return item.name });
-  //   console.log(nomes);
-  
-  //   const valoresEmUsd = repositories.map(item => { return item.price_usd });
-  //   console.log(valoresEmUsd);
-
-  //   setChartData({
-  //     labels: nomes,
-  //     datasets: [
-  //       {
-  //         label: "Whom'st let the dogs out",
-  //         data: valoresEmUsd,
-  //         borderColor: "rgb(53, 162, 235)",
-  //         backgroundColor: "rgba(53, 162, 235, 0.4)",
-  //       },
-  //     ],
-  //   });
-  //   setChartOptions({
-  //     responsive: true,
-  //     plugins: {
-  //       legend: {
-  //         position: "top"
-  //       },
-  //       title: {
-  //         display: true,
-  //         text: "Whom'st let the dogs out",
-  //       },
-  //     },
-  //   });
-  // }
-
-
-  // =============================================================================================
-
   const nomes = repositories.map(item => { return item.name });
-  // console.log(nomes);
 
   const valoresEmUsd = repositories.map(item => { return item.price_usd });
-  // console.log(valoresEmUsd);
 
   useEffect(() => {
     fetch("https://api.coinlore.net/api/tickers/?start=0&limit=9")
@@ -113,12 +67,6 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-      // const nomes = repositories.map(item => { return item.name });
-      // // console.log(nomes);
-
-      // const valoresEmUsd = repositories.map(item => { return item.price_usd });
-      // // console.log(valoresEmUsd);
-
     setChartData({
       labels: nomes,
       datasets: [
@@ -177,7 +125,6 @@ const Home = () => {
 
 
         {/* TESTE DE API EXTERNA!!!!!!*/}
-                    {/* <button onClick={criarGrafico}>Gerar gráfico</button> */}
                     <Pie data={chartData}/>
 
                     <div className='mb-8 text-white bg-gray-700'>
