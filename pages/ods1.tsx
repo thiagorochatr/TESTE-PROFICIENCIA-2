@@ -128,14 +128,14 @@ const Home: NextPage = () => {
 
 
     setChartData({
-      labels: nomes,
+      // labels: nomes,
       datasets: [
-        {
-          label: "Whom'st let the dogs out",
-          data: valoresEmUsd,
-          borderColor: "rgb(53, 162, 235)",
-          backgroundColor: "rgba(53, 162, 235, 0.4)",
-        },
+        // {
+          // label: "Whom'st let the dogs out",
+          // data: valoresEmUsd,
+          // borderColor: "rgb(53, 162, 235)",
+          // backgroundColor: "rgba(53, 162, 235, 0.4)",
+        // },
       ],
     });
     setChartOptions({
