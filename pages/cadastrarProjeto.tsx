@@ -19,7 +19,7 @@ const Home: NextPage = () => {
         </header>
 
         <div className='flex items-center justify-center'>
-          <Link href='/ods1'>
+          <Link href='/odss'>
             <a className='mr-1 sm:mr-4 p-2 rounded-lg hover:bg-gray-100 focus:bg-gray-100'>
               <img
                 src="icons/arrow-left.svg"

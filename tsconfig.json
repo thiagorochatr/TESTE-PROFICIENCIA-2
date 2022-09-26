@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/testando.js", "pages/ods1.jsx", "pages/ods1.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/testando.js", "pages/ods4-blockchain.jsx", "pages/ods4-blockchain.jsx"],
   "exclude": ["node_modules"]
 }
