@@ -20,7 +20,7 @@ const odsObjects = [
     number: 3,
     name: "Saúde e bem-estar",
     color: "bg-green-600",
-    href: "#",
+    href: "/ods3",
     icon: "icons/ods3.svg",
   }, {
     number: 4,

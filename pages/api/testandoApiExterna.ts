@@ -3,19 +3,20 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 
 type Data = {
   date: string,
-  nome: string
+  name: string
 }
 
 async function testando(req: NextApiRequest, res: NextApiResponse<Data>) {
   const dynamicDate = new Date();
 
-  const testeAPI = await fetch("https://api.github.com/users/thiagorochatr");
+  const testeAPI = await fetch("https://www.fruityvice.com/api/fruit/all");
   const testeAPIJson = await testeAPI.json();
-  const nomeNaApi = testeAPIJson.name;
+  const arrayMenor = testeAPIJson.slice(0,6);
+  const nomes = arrayMenor.map(item => { return item.name });
 
   res.json({
     date: dynamicDate.toUTCString(),
-    nome: nomeNaApi
+    name: nomes
   });
 }
 
