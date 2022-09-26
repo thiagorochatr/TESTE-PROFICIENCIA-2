@@ -92,7 +92,7 @@ const odsObjects = [
     number: 15,
     name: "Vida terrestre",
     color: "bg-green-500",
-    href: "#",
+    href: "/ods15",
     icon: "icons/ods15.svg",
   }, {
     number: 16,
