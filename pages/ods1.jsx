@@ -1,36 +1,54 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Chart as ChartJS,
   Title,
   Tooltip,
   Legend,
   ArcElement,
+
+  CategoryScale,
+  LinearScale,
+  PointElement, 
+  LineElement,
 } from 'chart.js';
-import { Pie } from "react-chartjs-2";
+import { Pie, Line } from "react-chartjs-2";
 
 ChartJS.register(
   Title,
   Tooltip,
   Legend,
   ArcElement,
+
+  CategoryScale,
+  LinearScale,
+  PointElement, 
+  LineElement,
 );
 
 const Home = () => {
 
   const [repositories, setRepositories] = useState([]);
   
-  const [chartData, setChartData] = useState({
+  const [chart1Data, setChart1Data] = useState({
     datasets: [],
   });
 
-  const [chartOptions, setChartOptions] = useState({});
+  const [chart2Data, setChart2Data] = useState({
+    datasets: [],
+  });
+
+  const [chart2Options, setChart2Options] = useState({});
 
   const nomes = repositories.map(item => { return item.name });
 
   const valoresEmUsd = repositories.map(item => { return item.price_usd });
+
+  const variacao24h = repositories.map(item =>{ return item.percent_change_24h});
+
+  const variacao7d = repositories.map(item =>{ return item.percent_change_7d});
 
   useEffect(() => {
     fetch("https://api.coinlore.net/api/tickers/?start=0&limit=9")
@@ -40,7 +58,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    setChartData({
+    setChart1Data({
       labels: nomes,
       datasets: [
         {
@@ -72,15 +90,45 @@ const Home = () => {
         },
       ],
     });
-    setChartOptions({
+
+    setChart2Data({
+      labels: nomes,
+      datasets: [
+        {
+          label: "24 horas",
+          data: variacao24h,
+          backgroundColor: [
+            'rgba(54, 162, 235, 0.5)',
+          ],
+          borderColor: [
+            'rgba(54, 162, 235, 1)',
+
+          ],
+          borderWidth: .5,
+        },
+        {
+          label: "7 dias",
+          data: variacao7d,
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.5)',
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+          ],
+          borderWidth: .5,
+        },
+      ],
+    });
+
+    setChart2Options({
       responsive: true,
       plugins: {
         legend: {
-          position: "top"
+          position: 'top'
         },
         title: {
           display: true,
-          text: "Whom'st let the dogs out",
+          text: "Taxas de variação",
         },
       },
     });
@@ -119,15 +167,28 @@ const Home = () => {
 
 
         {/* TESTE DE API EXTERNA!!!!!!*/}
-                    <div className='my-4 md:my-8 w-72 md:w-96'>
-                      <Pie data={chartData} />
+                    <div className='my-3 md:my-8 w-72 md:w-96'>
+                      <Pie data={chart1Data} />
                     </div>
 
-                    <div className='mb-8 text-lg sm:text-xl md:text-2xl'>
+                    <div className='mb-4 text-lg sm:text-xl md:text-2xl'>
                       {repositories.map(item => {
                         return <p>{item.name}: ${item.price_usd}</p>
                       })}
                     </div>
+
+                    <div className="my-3 md:my-8 w-96 sm:w-full">
+                      <Line data={chart2Data} options={chart2Options} />
+                    </div>
+
+                    <div className='mb-4 text-lg sm:text-xl md:text-2xl'>
+                      <p>[Nome]: [24 horas]/[7 dias]</p>
+                      {repositories.map(item => {
+                        return <p>{item.name}: {item.percent_change_24h}/{item.percent_change_7d}</p>
+                      })}
+                    </div>
+
+
 
         <Link href="/cadastrarProjeto">
           <a className='bg-gray-300 p-4 rounded-lg text-2xl hover:bg-gray-400 focus:bg-gray-400'>
