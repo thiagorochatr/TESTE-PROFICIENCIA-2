@@ -4,19 +4,17 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
-interface repositoryTypes {
-  // repository: {
-    name: string
-  // }
+interface apiDataTypes {
+  name: string
 }
 
 const Home: NextPage = () => {
   
-  const [repositories, setRepositories] = useState<repositoryTypes[]>([]);
+  const [repositories, setRepositories] = useState<apiDataTypes[]>([]);
   
 
   useEffect(() => {
-    fetch("https://api.github.com/users/thiagorochatr/repos")
+    fetch("https://zoo-animal-api.herokuapp.com/animals/rand/5")
     .then(response => response.json())
     .then(data => setRepositories(data))
   }, []);
@@ -57,8 +55,8 @@ const Home: NextPage = () => {
 
         {/* TESTE DE API EXTERNA!!!!!! */}
                     <div className='mb-8 text-white bg-gray-700'>
-                      {repositories.map(repository => {
-                        return <p>{repository.name}</p>
+                      {repositories.map(item => {
+                        return <p>{item.name}</p>
                       })}
                     </div>
 
