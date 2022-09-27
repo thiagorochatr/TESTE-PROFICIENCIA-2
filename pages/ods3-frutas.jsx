@@ -1,7 +1,8 @@
+
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import {
   Chart as ChartJS,
   LinearScale,
@@ -52,6 +53,8 @@ const projetos = [
 
 const Home = () => {
 
+  const chartRef = useRef(null);
+
   const [repositories, setRepositories] = useState([]);
   
   const [chartData, setChartData] = useState({
@@ -68,6 +71,15 @@ const Home = () => {
     fetch("http://localhost:3000/api/testandoApiExterna")
     .then(response => response.json())
     .then(array => setRepositories(array))
+  }, []);
+
+  useEffect(() => {
+    const chart = chartRef.current;
+
+    if (chart) {
+      console.log('CanvasRenderingContext2D', chart.ctx);
+      console.log('HTMLCanvasElement', chart.canvas);
+    }
   }, []);
 
   useEffect(() => {
@@ -154,7 +166,7 @@ const Home = () => {
         </h2>
 
         <div className="my-3 md:my-8 w-96 sm:w-full">
-        <Chart type='bar' data={chartData}/>
+        <Chart ref={chartRef} type='bar' data={chartData} aria-label="Hello ARIA World" role="img" />
         </div>
         
         <h2
