@@ -132,14 +132,15 @@ const Home = () => {
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
         <title>Frutas</title>
-          <a href='#content'
-            className='inset-0 text-white focus:text-black focus:border focus:p-1 hover:underline'
-          >
-            Saltar para o conteúdo principal da página
-          </a>
+
         <link rel="icon" href="/hopee-icon.svg" />
       </Head>
 
+      <a href='#content'
+        className='absolute w-44 h-14 inset-0 text-transparent focus:text-black focus:border focus:p-1 hover:underline'
+      >
+        Saltar para o conteúdo principal da página
+      </a>
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <header className='mb-8 md:mb-12 flex items-center justify-center'>
           <img src="/hopee-logo.svg" alt="Hopee Logo"
