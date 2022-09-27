@@ -132,6 +132,11 @@ const Home = () => {
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
         <title>Frutas</title>
+          <a href='#content'
+            className='inset-0 text-white focus:text-black focus:border focus:p-1 hover:underline'
+          >
+            Saltar para o conteúdo principal da página
+          </a>
         <link rel="icon" href="/hopee-icon.svg" />
       </Head>
 
@@ -161,6 +166,7 @@ const Home = () => {
 
         <h2
           className='mb-1 md:mb-2 text-lg sm:text-xl md:text-2xl lg:text-3xl'
+          id='content'
         >
           Frutas
         </h2>
