@@ -1,3 +1,4 @@
+// ACCESSIBILITY - 8.7
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -29,18 +30,18 @@ const Home: NextPage = () => {
             </a>
           </Link>
           <h1
-            className='text-lg sm:text-2xl md:text-3xl lg:text-4xl'
+            className='text-lg sm:text-2xl md:text-3xl lg:text-4xl text-black'
           >
             ODS #3 - Saúde e bem-estar
           </h1>
         </div>
-        <h2
-          className=' mb-4 md:mb-8 text-lg sm:text-xl md:text-2xl lg:text-3xl'
+        <h3
+          className=' mb-4 md:mb-8 text-lg sm:text-xl md:text-2xl lg:text-3xl text-black'
         >
           Selecione o tema:
-        </h2>
+        </h3>
         <Link href="ods3-frutas">
-          <a className='bg-green-600 p-4 rounded-lg text-2xl hover:bg-gray-400 focus:bg-gray-400'>
+          <a className='bg-green-600 p-4 rounded-lg text-2xl text-black hover:bg-gray-400 focus:bg-gray-400'>
             Frutas
           </a>
         </Link>

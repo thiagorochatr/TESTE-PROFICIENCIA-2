@@ -7,19 +7,19 @@ const odsObjects = [
   {
     number: 1,
     name: "Erradicação da pobreza",
-    color: "bg-red-500",
+    color: "bg-red-600",
     href: "#",
     icon: "icons/ods1.svg",
   }, {
     number: 2,
     name: "Fome zero e agricultura sustentável",
-    color: "bg-yellow-300",
+    color: "bg-yellow-400",
     href: "#",
     icon: "icons/ods2.svg",
   }, {
     number: 3,
     name: "Saúde e bem-estar",
-    color: "bg-green-600",
+    color: "bg-green-500",
     href: "/ods3",
     icon: "icons/ods3.svg",
   }, {
@@ -37,7 +37,7 @@ const odsObjects = [
   }, {
     number: 6,
     name: "Água potável e saneamento",
-    color: "bg-blue-300",
+    color: "bg-blue-400",
     href: "#",
     icon: "icons/ods6.svg",
   }, {
@@ -49,13 +49,13 @@ const odsObjects = [
   }, {
     number: 8,
     name: "Trabalho decente e crescimento econômico",
-    color: "bg-pink-800",
+    color: "bg-pink-600",
     href: "#",
     icon: "icons/ods8.svg",
   }, {
     number: 9,
     name: "Indústria, inovação e infraestrutura",
-    color: "bg-orange-500",
+    color: "bg-orange-600",
     href: "#",
     icon: "icons/ods9.svg",
   }, {
@@ -67,19 +67,19 @@ const odsObjects = [
   }, {
     number: 11,
     name: "Cidades e comunidades sustentáveis",
-    color: "bg-yellow-500",
+    color: "bg-yellow-400",
     href: "#",
     icon: "icons/ods11.svg",
   }, {
     number: 12,
     name: "Consumo e produção responsáveis",
-    color: "bg-yellow-700",
+    color: "bg-orange-600",
     href: "#",
     icon: "icons/ods12.svg",
   }, {
     number: 13,
     name: "Ação contra a mudança global do clima",
-    color: "bg-green-700",
+    color: "bg-green-500",
     href: "#",
     icon: "icons/ods13.svg",
   }, {
@@ -97,13 +97,13 @@ const odsObjects = [
   }, {
     number: 16,
     name: "Paz, injustiça e instituições eficazes",
-    color: "bg-blue-600",
+    color: "bg-blue-400",
     href: "#",
     icon: "icons/ods16.svg",
   }, {
     number: 17,
     name: "Parcerias e meios de implementação",
-    color: "bg-blue-800",
+    color: "bg-blue-400",
     href: "#",
     icon: "icons/ods17.svg",
   }
@@ -124,9 +124,9 @@ const Home: NextPage = () => {
           />
         </header>
 
-        <p className="mt-4 text-2xl">
+        <h1 className="mt-4 text-2xl">
           Conheça os projetos de acordo com o ODS relacionado!
-        </p>
+        </h1>
 
         <div className="mt-6 flex max-w-4xl flex-wrap justify-around sm:w-full px-4 items-center ">
           {odsObjects.map((item) => (
@@ -136,7 +136,7 @@ const Home: NextPage = () => {
                 className={`${item.color} mr-4 mt-6 w-96 h-44 rounded-xl border p-6 text-center hover:text-gray-900 focus:text-gray-900`}
               >
                 <div className='flex items-center justify-center'>
-                  <h3 className="text-2xl font-bold">ODS #{item.number}</h3>
+                  <p className="text-2xl font-bold">ODS #{item.number}</p>
                   <img
                     src={item.icon}
                     alt={`ODS #${item.number} icon.`}
