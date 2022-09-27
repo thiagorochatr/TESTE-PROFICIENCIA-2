@@ -113,7 +113,7 @@ const Home: NextPage = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-4">
       <Head>
-        <title>Create Next App</title>
+        <title>Escolha o ODS</title>
         <link rel="icon" href="/hopee-icon.svg" />
       </Head>
 
