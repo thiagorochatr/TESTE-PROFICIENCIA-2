@@ -66,7 +66,7 @@ const Home = () => {
   const acucar = repositories.acucars;
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/testandoApiExterna")
+    fetch("/api/testandoApiExterna")
     .then(response => response.json())
     .then(array => setRepositories(array))
   }, []);
