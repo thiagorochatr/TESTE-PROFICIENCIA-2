@@ -55,15 +55,17 @@ const Home = () => {
     datasets: [],
   });
 
-  const nomes = repositories.map(item => { return item.name });
+  // const nomes = repositories.map(item => { return item.name });
+  const nomes = repositories.nome;
 
-  const carboidrato = repositories.map(item => { return item.nutritions.carbohydrates });
+  // const carboidrato = repositories.map(item => { return item.nutritions.carbohydrates });
+  const carboidrato = repositories.carboidratos;
 
-  const proteina = repositories.map(item => { return item.nutritions.protein });
+  // const proteina = repositories.map(item => { return item.nutritions.protein });
 
-  const caloria = repositories.map(item => { return item.nutritions.calories });
+  // const caloria = repositories.map(item => { return item.nutritions.calories });
 
-  const acucar = repositories.map(item => { return item.nutritions.sugar });
+  // const acucar = repositories.map(item => { return item.nutritions.sugar });
 
   // useEffect(() => {
   //   const buscaData = async () => {
@@ -97,9 +99,10 @@ const Home = () => {
 
   useEffect(() => {
   //   testando();
-    fetch("https://www.fruityvice.com/api/fruit/all")
+    fetch("http://localhost:3000/api/testandoApiExterna")
     .then(response => response.json())
     // .then(arr => arr.slice(0,6))
+    // .then((data) => console.log(data))
     .then(array => setRepositories(array))
   }, []);
 
@@ -125,9 +128,9 @@ const Home = () => {
 
   console.log(nomes);
   console.log(carboidrato);
-  console.log(proteina);
-  console.log(caloria);
-  console.log(acucar);
+  // console.log(proteina);
+  // console.log(caloria);
+  // console.log(acucar);
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
@@ -170,11 +173,11 @@ const Home = () => {
         <Radar data={chartData}/>
         </div>
 
-        <div className='mb-4 text-lg sm:text-xl md:text-2xl'>
+        {/* <div className='mb-4 text-lg sm:text-xl md:text-2xl'>
           {repositories.map(item => {
             return <p>{item.name}: {item.carbohydrates}</p>
           })}
-        </div>
+        </div> */}
 
         <h2
           className='my-4 md:my-8 text-lg sm:text-xl md:text-2xl lg:text-3xl'
