@@ -61,7 +61,7 @@ const Home = () => {
 
   const proteina = repositories.map(item => { return item.nutritions.protein });
 
-  const calorias = repositories.map(item => { return item.nutritions.calories });
+  const caloria = repositories.map(item => { return item.nutritions.calories });
 
   const acucar = repositories.map(item => { return item.nutritions.sugar });
 
@@ -99,7 +99,7 @@ const Home = () => {
   //   testando();
     fetch("https://www.fruityvice.com/api/fruit/all")
     .then(response => response.json())
-    .then(arr => arr.slice(0,6))
+    // .then(arr => arr.slice(0,6))
     .then(array => setRepositories(array))
   }, []);
 
@@ -122,6 +122,12 @@ const Home = () => {
       ],
     });
   },[repositories]);
+
+  console.log(nomes);
+  console.log(carboidrato);
+  console.log(proteina);
+  console.log(caloria);
+  console.log(acucar);
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
