@@ -1,4 +1,4 @@
-
+// ACCESSIBILITY - 8.7
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -53,7 +53,7 @@ const projetos = [
 
 const Home = () => {
 
-  const chartRef = useRef(null);
+  // const chartRef = useRef(null);
 
   const [repositories, setRepositories] = useState([]);
   
@@ -73,14 +73,14 @@ const Home = () => {
     .then(array => setRepositories(array))
   }, []);
 
-  useEffect(() => {
-    const chart = chartRef.current;
+  // useEffect(() => {
+  //   const chart = chartRef.current;
 
-    if (chart) {
-      console.log('CanvasRenderingContext2D', chart.ctx);
-      console.log('HTMLCanvasElement', chart.canvas);
-    }
-  }, []);
+  //   if (chart) {
+  //     console.log('CanvasRenderingContext2D', chart.ctx);
+  //     console.log('HTMLCanvasElement', chart.canvas);
+  //   }
+  // }, []);
 
   useEffect(() => {
     setChartData({
@@ -173,7 +173,10 @@ const Home = () => {
         </h2>
 
         <div className="my-3 md:my-8 w-96 sm:w-full">
-        <Chart ref={chartRef} type='bar' data={chartData} aria-label="Hello ARIA World" role="img" />
+        <Chart
+          // ref={chartRef}
+          type='bar' data={chartData}
+          aria-label="Gráfico da quantidade de proteína, açúcar, carboidrato e caloria das frutas" role="img" />
         </div>
         
         <h2
