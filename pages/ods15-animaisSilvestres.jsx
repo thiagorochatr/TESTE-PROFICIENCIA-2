@@ -151,7 +151,7 @@ const Home = () => {
             <Link href={item.href}>
               <a
                 key={item.number}
-                className="bg-gray-300 mr-4 mt-6 w-96 h-44 rounded-xl border p-6 text-center hover:bg-gray-400 focus:bg-gray-400"
+                className="bg-gray-300 shadow-2xl mr-4 mt-6 w-96 h-44 rounded-xl border p-6 text-center hover:bg-gray-400 focus:bg-gray-400"
               >
                 <div className='flex items-center justify-center'>
                   <h3 className="text-2xl font-bold">{item.title}</h3>
