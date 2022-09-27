@@ -15,7 +15,7 @@ import {
 } from 'chart.js';
 import { Radar } from "react-chartjs-2";
 
-import axios from "axios";
+// import axios from "axios";
 
 ChartJS.register(
   Title,
@@ -95,33 +95,33 @@ const Home = () => {
   // }
 
 
-  // useEffect(() => {
+  useEffect(() => {
   //   testando();
-  //   fetch("https://www.fruityvice.com/api/fruit/all")
-  //   .then(response => response.json())
-  //   .then(arr => arr.slice(0,6))
-  //   .then(array => setRepositories(array))
-  // }, []);
+    fetch("https://www.fruityvice.com/api/fruit/all")
+    .then(response => response.json())
+    .then(arr => arr.slice(0,6))
+    .then(array => setRepositories(array))
+  }, []);
 
-  // useEffect(() => {
-  //   setChartData({
-  //     labels: nomes,
-  //     datasets: [
-  //       {
-  //         label: "Tempo de vida estimado",
-  //         data: tempoDeVida,
-  //         backgroundColor: [
-  //           'rgba(54, 162, 235, 0.5)',
+  useEffect(() => {
+    setChartData({
+      labels: nomes,
+      datasets: [
+        {
+          label: "Tempo de vida estimado",
+          data: carboidrato,
+          backgroundColor: [
+            'rgba(54, 162, 235, 0.5)',
 
-  //         ],
-  //         borderColor: [
-  //           'rgba(54, 162, 235, 1)',
-  //         ],
-  //         borderWidth: 1,
-  //       },
-  //     ],
-  //   });
-  // },[repositories]);
+          ],
+          borderColor: [
+            'rgba(54, 162, 235, 1)',
+          ],
+          borderWidth: 1,
+        },
+      ],
+    });
+  },[repositories]);
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
@@ -160,15 +160,15 @@ const Home = () => {
           Frutas
         </h2>
 
-        {/* <div className="my-3 md:my-8 w-96 sm:w-full">
+        <div className="my-3 md:my-8 w-96 sm:w-full">
         <Radar data={chartData}/>
         </div>
 
         <div className='mb-4 text-lg sm:text-xl md:text-2xl'>
           {repositories.map(item => {
-            return <p>{item.name}: {item.lifespan}</p>
+            return <p>{item.name}: {item.carbohydrates}</p>
           })}
-        </div> */}
+        </div>
 
         <h2
           className='my-4 md:my-8 text-lg sm:text-xl md:text-2xl lg:text-3xl'
