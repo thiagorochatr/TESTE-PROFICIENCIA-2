@@ -42,11 +42,7 @@ Foram feitas apenas as ODS's #3, #4 e #15 para esta primeira entrega.
 
 Os gráficos dinâmicos das ODS's #4 e #15 estão funcionando normalmente, recebendo dados de API's externas para alimentar os gráficos. O gráfico da ODS #3 não está recebendo os dados da API, por causa de um problema de autorização de acesso da mesma. Eu criei uma API para interagir com a API externa, porém esta API funciona apenas no Localhost! Segue foto do gráfico com dados:
 
-<br>
-
 ![Gráfico](./public/forReadme/grafico-ods3.jpg)
-
-<br>
 
 - 3
 
