@@ -1,3 +1,4 @@
+
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -11,6 +12,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/hopee-icon.svg" />
       </Head>
 
+      <a href='#content'
+        className='absolute w-44 h-14 inset-0 text-transparent focus:text-black focus:border focus:p-1 hover:underline'
+      >
+        Saltar para o conteúdo principal da página
+      </a>
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <header className='mb-8 md:mb-12 flex items-center justify-center'>
           <img src="/hopee-logo.svg" alt="Hopee Logo"
@@ -36,6 +42,7 @@ const Home: NextPage = () => {
         </div>
         <h2
           className=' mb-4 md:mb-8 text-lg sm:text-xl md:text-2xl lg:text-3xl'
+          id='content'
         >
           Selecione o tema:
         </h2>

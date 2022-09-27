@@ -1,3 +1,4 @@
+
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -68,7 +69,7 @@ const Home = () => {
       labels: nomes,
       datasets: [
         {
-          label: "Tempo de vida estimado",
+          label: "Tempo de vida médio",
           data: tempoDeVida,
           backgroundColor: [
             'rgba(54, 162, 235, 0.5)',
@@ -90,6 +91,11 @@ const Home = () => {
         <link rel="icon" href="/hopee-icon.svg" />
       </Head>
 
+      <a href='#content'
+        className='absolute w-44 h-14 inset-0 text-transparent focus:text-black focus:border focus:p-1 hover:underline'
+      >
+        Saltar para o conteúdo principal da página
+      </a>
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <header className='mb-8 md:mb-12 flex items-center justify-center'>
           <img src="/hopee-logo.svg" alt="Hopee Logo"
@@ -116,17 +122,21 @@ const Home = () => {
 
         <h2
           className='mb-1 md:mb-2 text-lg sm:text-xl md:text-2xl lg:text-3xl'
+          id='content'
         >
           Animais silvestres
         </h2>
 
         <div className="my-3 md:my-8 w-96 sm:w-full">
-        <Radar data={chartData}/>
+        <Radar
+          data={chartData}
+          aria-label="Gráfico da vida média de alguns animais" role="img"
+        />
         </div>
 
         <div className='mb-4 text-lg sm:text-xl md:text-2xl'>
           {repositories.map(item => {
-            return <p>{item.name}: {item.lifespan}</p>
+            return <p>{item.name}: {item.lifespan} anos</p>
           })}
         </div>
 

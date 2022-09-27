@@ -2,7 +2,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Chart as ChartJS,
   LinearScale,
@@ -53,8 +53,6 @@ const projetos = [
 
 const Home = () => {
 
-  // const chartRef = useRef(null);
-
   const [repositories, setRepositories] = useState([]);
   
   const [chartData, setChartData] = useState({
@@ -72,15 +70,6 @@ const Home = () => {
     .then(response => response.json())
     .then(array => setRepositories(array))
   }, []);
-
-  // useEffect(() => {
-  //   const chart = chartRef.current;
-
-  //   if (chart) {
-  //     console.log('CanvasRenderingContext2D', chart.ctx);
-  //     console.log('HTMLCanvasElement', chart.canvas);
-  //   }
-  // }, []);
 
   useEffect(() => {
     setChartData({
@@ -174,9 +163,9 @@ const Home = () => {
 
         <div className="my-3 md:my-8 w-96 sm:w-full">
         <Chart
-          // ref={chartRef}
           type='bar' data={chartData}
-          aria-label="Gráfico da quantidade de proteína, açúcar, carboidrato e caloria das frutas" role="img" />
+          aria-label="Gráfico da quantidade de proteína, açúcar, carboidrato e caloria das frutas" role="img"
+          />
         </div>
         
         <h2

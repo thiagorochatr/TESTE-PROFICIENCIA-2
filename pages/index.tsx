@@ -12,6 +12,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/hopee-icon.svg" />
       </Head>
 
+      <a href='#content'
+        className='absolute w-44 h-14 inset-0 text-transparent focus:text-black focus:border focus:p-1 hover:underline'
+      >
+        Saltar para o conteúdo principal da página
+      </a>
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <img src="hopee-logo.svg" alt="Hopee Logo"
           className='mb-12'
@@ -20,6 +25,7 @@ const Home: NextPage = () => {
         <div>
           <h1
             className='text-4xl mb-12'
+            id='content'
           >
             Login
           </h1>

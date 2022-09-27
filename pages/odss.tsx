@@ -117,6 +117,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/hopee-icon.svg" />
       </Head>
 
+      <a href='#content'
+        className='absolute w-44 h-14 inset-0 text-transparent focus:text-black focus:border focus:p-1 hover:underline'
+      >
+        Saltar para o conteúdo principal da página
+      </a>
       <main className="mb-16 w-full sm:px-24 flex flex-1 flex-col justify-center text-center sm:items-center">
         <header className='mb-2 md:mb-4 flex items-center justify-center'>
           <img src="/hopee-logo.svg" alt="Hopee Logo"
@@ -124,7 +129,7 @@ const Home: NextPage = () => {
           />
         </header>
 
-        <h1 className="mt-4 text-2xl">
+        <h1 className="mt-4 text-2xl" id='content'>
           Conheça os projetos de acordo com o ODS relacionado!
         </h1>
 
@@ -136,7 +141,7 @@ const Home: NextPage = () => {
                 className={`${item.color} mr-4 mt-6 w-96 h-44 rounded-xl border p-6 text-center hover:text-gray-900 focus:text-gray-900`}
               >
                 <div className='flex items-center justify-center'>
-                  <p className="text-2xl font-bold">ODS #{item.number}</p>
+                  <h2 className="text-2xl font-bold">ODS #{item.number}</h2>
                   <img
                     src={item.icon}
                     alt={`ODS #${item.number} icon.`}
