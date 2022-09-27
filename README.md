@@ -50,7 +50,7 @@ Todo o projeto está com acessibilidade nota máxima, segundo os sites:
 
 - NextJS
 
-NextJS é um Framework React! Escolhi utilizá-lo por já estar acostumado com ele, além de oferecer muitas facilidades no processo de desenvolvimento. Utilizei como linguagem principal o TypeScript, e optei utilizar o JavaScript apenas para trabalhar com as API's e com os gráficos dinâmicos.
+NextJS é um Framework React! Escolhi utilizá-lo por já estar acostumado com ele, além de oferecer muitas facilidades no processo de desenvolvimento. Utilizei como linguagem principal o TypeScript, e optei por utilizar o JavaScript apenas para trabalhar com as API's e com os gráficos dinâmicos.
 
 - TailwindCSS
 
@@ -58,7 +58,7 @@ TailwindCSS é um Framework CSS! O Tailwind permite fazer a estilização direta
 
 - ChartJS
 
-ChartJS foi incluído para auxiliar a criação dos gráficos dinâmicos, que são abastecidos por API's externas e internas.
+ChartJS foi incluído para auxiliar na criação dos gráficos dinâmicos, que são abastecidos por API's externas e internas.
 
 - Flat Icon
 
@@ -84,4 +84,4 @@ Os gráficos dinâmicos das ODS's #3, #4 e #15 estão funcionando normalmente. O
 
 - 3
 
-Existe um erro de segurança nos formulários do Login e de Cadastrar um projeto. Como se trata de informações sensíveis (senhas e contatos), o ideal seria utilizar o <code>method='post'</code>, porém seria necessário um lado servidor para receber os dados. Pelo requisitos deste projeto, e por ser apenas um MVP, não vi necessidade de utilizar o <code>method='post'</code> nesse momento. Ao invés disso, utilizei o <code>method='get'</code>, e o problema é que a URL recebe as informações colocadas no formulário.
+Existe um erro de segurança nos formulários do Login e de Cadastrar um projeto. Como se trata de informações sensíveis (senhas e contatos), o ideal seria utilizar o <code>method='post'</code>, porém seria necessário um lado servidor para receber os dados. Pelos requisitos deste projeto, e por ser apenas um MVP, não tem necessidade de utilizar o <code>method='post'</code> nesse momento. Ao invés disso, utilizei o <code>method='get'</code>, e o problema é que a URL recebe as informações colocadas no formulário.
