@@ -30,18 +30,18 @@ const Home: NextPage = () => {
             </a>
           </Link>
           <h1
-            className='text-lg sm:text-2xl md:text-3xl lg:text-4xl text-black'
+            className='text-lg sm:text-2xl md:text-3xl lg:text-4xl'
           >
             ODS #3 - Saúde e bem-estar
           </h1>
         </div>
-        <h3
-          className=' mb-4 md:mb-8 text-lg sm:text-xl md:text-2xl lg:text-3xl text-black'
+        <h2
+          className=' mb-4 md:mb-8 text-lg sm:text-xl md:text-2xl lg:text-3xl'
         >
           Selecione o tema:
-        </h3>
+        </h2>
         <Link href="ods3-frutas">
-          <a className='bg-green-600 p-4 rounded-lg text-2xl text-black hover:bg-gray-400 focus:bg-gray-400'>
+          <a className='bg-green-600 p-4 rounded-lg text-2xl hover:bg-gray-400 focus:bg-gray-400'>
             Frutas
           </a>
         </Link>
