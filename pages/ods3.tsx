@@ -39,7 +39,7 @@ const Home: NextPage = () => {
         >
           Selecione o tema:
         </h2>
-        <Link href="#">
+        <Link href="ods3-frutas">
           <a className='bg-green-600 p-4 rounded-lg text-2xl hover:bg-gray-400 focus:bg-gray-400'>
             Frutas
           </a>

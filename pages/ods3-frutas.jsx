@@ -4,28 +4,31 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import {
   Chart as ChartJS,
-  Title,
-  Tooltip,
-  Legend,
-
-  RadialLinearScale,
+  LinearScale,
+  CategoryScale,
+  BarElement,
   PointElement, 
   LineElement,
-  Filler,
+  LineController,
+  BarController,
+  Legend,
+  Tooltip,
+  Title,
 } from 'chart.js';
-import { Radar } from "react-chartjs-2";
+import { Chart } from "react-chartjs-2";
 
-// import axios from "axios";
 
 ChartJS.register(
-  Title,
-  Tooltip,
-  Legend,
-
+  LinearScale,
+  CategoryScale,
+  BarElement,
   PointElement, 
   LineElement,
-  RadialLinearScale,
-  Filler,
+  LineController,
+  BarController,
+  Tooltip,
+  Legend,
+  Title,
 );
 
 const projetos = [
@@ -55,54 +58,15 @@ const Home = () => {
     datasets: [],
   });
 
-  // const nomes = repositories.map(item => { return item.name });
   const nomes = repositories.nome;
-
-  // const carboidrato = repositories.map(item => { return item.nutritions.carbohydrates });
   const carboidrato = repositories.carboidratos;
-
-  // const proteina = repositories.map(item => { return item.nutritions.protein });
-
-  // const caloria = repositories.map(item => { return item.nutritions.calories });
-
-  // const acucar = repositories.map(item => { return item.nutritions.sugar });
-
-  // useEffect(() => {
-  //   const buscaData = async () => {
-  //     await axios
-  //       .get("https://www.fruityvice.com/api/fruit/all")
-  //       .then((response) => {
-  //         let res = response.data;
-  //         console.log("RES", res);
-  //         setRepositories(res);
-  //       })
-  //       .catch((error) => {
-  //         console.log("teste", error);
-  //       });
-  //   };
-  //   buscaData();
-  // }, []);
-
-
-  // async function testando(req, res) {
-  //   const testeAPI = await fetch("https://www.fruityvice.com/api/fruit/all");
-  //   const testeAPIJson = await testeAPI.json();
-  //   const arrayMenor = testeAPIJson.slice(0,6);
-  //   const nomes = arrayMenor.map(item => { return item.name });
-  //   console.log(nomes);
-  
-  //   res.json({
-  //     name: nomes
-  //   });
-  // }
-
+  const proteina = repositories.proteinas;
+  const caloria = repositories.calorias;
+  const acucar = repositories.acucars;
 
   useEffect(() => {
-  //   testando();
     fetch("http://localhost:3000/api/testandoApiExterna")
     .then(response => response.json())
-    // .then(arr => arr.slice(0,6))
-    // .then((data) => console.log(data))
     .then(array => setRepositories(array))
   }, []);
 
@@ -111,26 +75,46 @@ const Home = () => {
       labels: nomes,
       datasets: [
         {
-          label: "Tempo de vida estimado",
-          data: carboidrato,
-          backgroundColor: [
-            'rgba(54, 162, 235, 0.5)',
+          type: 'line',
+          label: 'Proteína',
+          data: proteina,
 
-          ],
-          borderColor: [
-            'rgba(54, 162, 235, 1)',
-          ],
+          borderColor: 'rgb(50,205,50)',
+          borderWidth: 2,
+          fill: true,
+          
+          backgroundColor: 'rgba(50,205,50, 0.4)',
+        },
+        {
+          type: 'line',
+          label: 'Açúcar',
+          data: acucar,
+
+          borderColor: 'rgb(255, 99, 132)',
+          borderWidth: 2,
+          fill: false,
+        },
+        {
+          type: 'bar',
+          label: 'Carboidrato',
+          data: carboidrato,
+
+          backgroundColor: "rgba(137, 207, 240, 0.6)",
+          borderColor: "rgb(137, 207, 240)",
+          borderWidth: 1,
+        },
+        {
+          type: 'bar',
+          label: 'Caloria',
+          data: caloria,
+
+          backgroundColor: 'rgba(255, 255, 51, 0.8)',
+          borderColor: 'rgb(255,255,51)',
           borderWidth: 1,
         },
       ],
     });
   },[repositories]);
-
-  console.log(nomes);
-  console.log(carboidrato);
-  // console.log(proteina);
-  // console.log(caloria);
-  // console.log(acucar);
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
@@ -170,15 +154,9 @@ const Home = () => {
         </h2>
 
         <div className="my-3 md:my-8 w-96 sm:w-full">
-        <Radar data={chartData}/>
+        <Chart type='bar' data={chartData}/>
         </div>
-
-        {/* <div className='mb-4 text-lg sm:text-xl md:text-2xl'>
-          {repositories.map(item => {
-            return <p>{item.name}: {item.carbohydrates}</p>
-          })}
-        </div> */}
-
+        
         <h2
           className='my-4 md:my-8 text-lg sm:text-xl md:text-2xl lg:text-3xl'
         >
