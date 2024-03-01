@@ -1,3 +1,5 @@
+Repository for the Web Fundamentals discipline (Fundamentos da Web), from the Undergraduate Course in Information Systems, at the Federal Center of Technological Education/Rio de Janeiro (Cefet/RJ).
+
 # ![Hopee Icon](./public/hopee-icon.svg) Hopee
 
 Projeto de Proficiência de Fundamentos Web - CEFET/RJ
